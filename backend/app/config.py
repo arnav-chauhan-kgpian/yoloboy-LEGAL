@@ -10,13 +10,13 @@ class Settings(BaseSettings):
 
     chroma_collection: str = "legal_clauses"
 
-    cors_origins: str = "http://localhost:3000"
+    cors_origins: str = "http://localhost:3000,https://*.railway.app,https://*.up.railway.app"
     log_level: str = "INFO"
 
     demo_cache_enabled: bool = True
     demo_cache_path: str = "../data/cache"
 
-    data_path: str = "../data"
+    data_path: str = "./data"
 
     groq_model: str = "llama-3.3-70b-versatile"
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"

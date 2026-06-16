@@ -1,0 +1,90 @@
+{
+  "contract_id": "nexus_meridian",
+  "title": "Nexus Analytics Ltd / Meridian Healthcare GmbH — SaaS Data Processing Agreement",
+  "parties": ["Nexus Analytics Ltd (Delaware, USA)", "Meridian Healthcare GmbH (Munich, DE)"],
+  "governing_law": "Delaware, USA",
+  "data_categories": ["health_data", "clinical_trial_data", "patient_identifiers"],
+  "framework_id": "gdpr_2016_679",
+  "clauses": [
+    {
+      "clause_id": "nexus_meridian__cl_1",
+      "section": "§1 Scope of Processing",
+      "text": "Nexus Analytics Ltd shall process clinical trial datasets containing pseudonymized patient identifiers, treatment records, and outcome measurements for 14,000 oncology trial participants on behalf of Meridian Healthcare GmbH for the purposes of statistical modeling and outcome prediction.",
+      "maps_to_requirements": ["gdpr_art_5", "gdpr_art_6", "gdpr_art_9"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "nexus_meridian__cl_2",
+      "section": "§2 Consent and Lawful Basis",
+      "text": "The Customer represents that data subjects have provided general consent for research use of their data, in accordance with the customer's internal policies.",
+      "maps_to_requirements": ["gdpr_art_6"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "nexus_meridian__cl_3",
+      "section": "§3 Security Measures",
+      "text": "Nexus Analytics shall maintain industry-standard security measures consistent with prevailing commercial practices in the analytics services industry.",
+      "maps_to_requirements": ["gdpr_art_32"],
+      "conflicts_with": ["gdpr_art_32"],
+      "risk_flags": ["VAGUE_SECURITY_STANDARD"]
+    },
+    {
+      "clause_id": "nexus_meridian__cl_4",
+      "section": "§4 Data Subject Rights",
+      "text": "Upon written request from a data subject, Customer may request that Nexus Analytics provide access to or correction of personal data, subject to reasonable processing fees.",
+      "maps_to_requirements": ["gdpr_art_13"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "nexus_meridian__cl_5",
+      "section": "§5 Term and Termination",
+      "text": "This agreement shall be in effect for an initial term of 36 months and automatically renewed unless terminated by written notice 90 days prior to renewal.",
+      "maps_to_requirements": [],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "nexus_meridian__cl_6",
+      "section": "§6 Incident Response",
+      "text": "In the event of a confirmed data security incident involving personal data, Nexus Analytics shall notify Customer in writing within thirty (30) business days of confirmation, providing reasonable detail regarding the nature and extent of the incident.",
+      "maps_to_requirements": ["gdpr_art_33"],
+      "conflicts_with": ["gdpr_art_33"],
+      "risk_flags": ["NOTIFICATION_WINDOW"]
+    },
+    {
+      "clause_id": "nexus_meridian__cl_7",
+      "section": "§7 Governing Law",
+      "text": "This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of laws principles. All data processing operations may be performed in any Nexus Analytics facility globally, including the United States.",
+      "maps_to_requirements": [],
+      "conflicts_with": [],
+      "risk_flags": ["CROSS_BORDER_TRANSFER"]
+    },
+    {
+      "clause_id": "nexus_meridian__cl_8",
+      "section": "§8 Limitation of Liability",
+      "text": "In no event shall Nexus Analytics' liability exceed the fees paid by Customer during the twelve months preceding the claim.",
+      "maps_to_requirements": [],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "nexus_meridian__cl_9",
+      "section": "§9 Audit Rights",
+      "text": "Customer may request, no more than once per calendar year and with 60 days advance notice, a summary report attesting to Nexus Analytics' security practices.",
+      "maps_to_requirements": [],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "nexus_meridian__cl_10",
+      "section": "§10 Sub-processors",
+      "text": "Customer hereby grants Nexus Analytics a blanket authorization to engage any sub-processor that Nexus Analytics deems appropriate, without further notice or consent requirement.",
+      "maps_to_requirements": ["gdpr_art_28"],
+      "conflicts_with": ["gdpr_art_28"],
+      "risk_flags": ["BLANKET_SUBPROCESSOR_AUTH"]
+    }
+  ]
+}

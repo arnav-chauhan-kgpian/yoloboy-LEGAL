@@ -1,0 +1,244 @@
+{
+  "framework": {
+    "framework_id": "gdpr_2016_679",
+    "name": "General Data Protection Regulation",
+    "jurisdiction": "EU",
+    "version": "2016/679"
+  },
+  "requirements": [
+    {
+      "requirement_id": "gdpr_art_5",
+      "article": "Art. 5",
+      "title": "Principles relating to processing of personal data",
+      "applies_to": "controller",
+      "default_severity": "HIGH",
+      "verbatim_text": "Personal data shall be processed lawfully, fairly and in a transparent manner; collected for specified, explicit and legitimate purposes; adequate, relevant and limited to what is necessary."
+    },
+    {
+      "requirement_id": "gdpr_art_6",
+      "article": "Art. 6",
+      "title": "Lawfulness of processing",
+      "applies_to": "controller",
+      "default_severity": "HIGH",
+      "verbatim_text": "Processing shall be lawful only if and to the extent that at least one legal basis applies (consent, contract, legal obligation, vital interests, public task, legitimate interests)."
+    },
+    {
+      "requirement_id": "gdpr_art_9",
+      "article": "Art. 9",
+      "title": "Processing of special categories of personal data",
+      "applies_to": "controller",
+      "default_severity": "CRITICAL",
+      "verbatim_text": "Processing of personal data concerning health shall be prohibited unless explicit consent is given or processing is necessary for specified healthcare purposes."
+    },
+    {
+      "requirement_id": "gdpr_art_13",
+      "article": "Art. 13",
+      "title": "Information to be provided where personal data are collected from the data subject",
+      "applies_to": "controller",
+      "default_severity": "HIGH",
+      "verbatim_text": "The controller shall provide the data subject with information about the identity of the controller, purposes of processing, recipients, and retention period."
+    },
+    {
+      "requirement_id": "gdpr_art_17",
+      "article": "Art. 17(2)",
+      "title": "Right to erasure ('right to be forgotten')",
+      "applies_to": "controller",
+      "default_severity": "CRITICAL",
+      "verbatim_text": "The controller shall have the obligation to erase personal data without undue delay where the data are no longer necessary, consent is withdrawn, or processing is unlawful. Procedures and timelines for erasure must be specified."
+    },
+    {
+      "requirement_id": "gdpr_art_25",
+      "article": "Art. 25",
+      "title": "Data protection by design and by default",
+      "applies_to": "controller",
+      "default_severity": "CRITICAL",
+      "verbatim_text": "The controller shall implement appropriate technical and organisational measures, such as pseudonymisation, designed to implement data-protection principles in an effective manner and to integrate the necessary safeguards into the processing."
+    },
+    {
+      "requirement_id": "gdpr_art_28",
+      "article": "Art. 28",
+      "title": "Processor obligations and sub-processor authorisation",
+      "applies_to": "both",
+      "default_severity": "HIGH",
+      "verbatim_text": "The processor shall not engage another processor without prior specific or general written authorisation of the controller. In the case of general written authorisation, the processor shall inform the controller of any intended changes."
+    },
+    {
+      "requirement_id": "gdpr_art_32",
+      "article": "Art. 32",
+      "title": "Security of processing",
+      "applies_to": "both",
+      "default_severity": "HIGH",
+      "verbatim_text": "The controller and the processor shall implement appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including pseudonymisation, encryption, and regular testing of effectiveness."
+    },
+    {
+      "requirement_id": "gdpr_art_33",
+      "article": "Art. 33",
+      "title": "Notification of a personal data breach to the supervisory authority",
+      "applies_to": "controller",
+      "default_severity": "CRITICAL",
+      "verbatim_text": "In the case of a personal data breach, the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority."
+    },
+    {
+      "requirement_id": "gdpr_art_35",
+      "article": "Art. 35",
+      "title": "Data protection impact assessment",
+      "applies_to": "controller",
+      "default_severity": "CRITICAL",
+      "verbatim_text": "Where a type of processing is likely to result in a high risk to the rights and freedoms of natural persons, particularly for processing of special categories of data on a large scale, the controller shall carry out a data protection impact assessment prior to the processing."
+    },
+    {
+      "requirement_id": "gdpr_art_44",
+      "article": "Art. 44",
+      "title": "General principle for transfers to third countries",
+      "applies_to": "controller",
+      "default_severity": "CRITICAL",
+      "verbatim_text": "Any transfer of personal data to a third country shall take place only if the controller and processor comply with the conditions in this Chapter, including adequacy decisions, standard contractual clauses, or binding corporate rules."
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "meta_ireland_dpc_2023",
+      "name": "Meta Ireland (DPC 2023)",
+      "authority": "Irish Data Protection Commission",
+      "year": 2023,
+      "penalty_eur": 1200000000,
+      "holding": "Meta was fined €1.2 billion for transferring EU user data to the US without an adequate legal mechanism after the invalidation of Privacy Shield under Schrems II.",
+      "authority_score": 0.95,
+      "enforces": ["gdpr_art_44"],
+      "court": {
+        "court_id": "dpc_ireland",
+        "name": "Irish Data Protection Commission",
+        "jurisdiction": "IE",
+        "tier": "supervisory_authority"
+      }
+    },
+    {
+      "case_id": "austrian_post_2019",
+      "name": "Austrian Post AG (2019)",
+      "authority": "Austrian DPA",
+      "year": 2019,
+      "penalty_eur": 18900000,
+      "holding": "Austrian Post was fined €18.9 million for delayed breach notification — reported 13 days after discovery, far beyond the 72-hour window required by Art. 33.",
+      "authority_score": 0.85,
+      "enforces": ["gdpr_art_33"],
+      "court": {
+        "court_id": "dpa_austria",
+        "name": "Austrian Data Protection Authority",
+        "jurisdiction": "AT",
+        "tier": "supervisory_authority"
+      }
+    },
+    {
+      "case_id": "hospital_braga_2022",
+      "name": "Hospital de Braga (2022)",
+      "authority": "Portuguese CNPD",
+      "year": 2022,
+      "penalty_eur": 400000,
+      "holding": "Hospital de Braga was fined €400,000 for processing patient health data at scale without conducting a Data Protection Impact Assessment as required by Art. 35.",
+      "authority_score": 0.80,
+      "enforces": ["gdpr_art_35", "gdpr_art_9"],
+      "court": {
+        "court_id": "cnpd_portugal",
+        "name": "Comissão Nacional de Proteção de Dados",
+        "jurisdiction": "PT",
+        "tier": "supervisory_authority"
+      }
+    },
+    {
+      "case_id": "whatsapp_dpc_2021",
+      "name": "WhatsApp Ireland (DPC 2021)",
+      "authority": "Irish Data Protection Commission",
+      "year": 2021,
+      "penalty_eur": 225000000,
+      "holding": "WhatsApp was fined €225 million for opaque sub-processor arrangements and failure to provide clear transparency information under Arts. 13 and 28.",
+      "authority_score": 0.88,
+      "enforces": ["gdpr_art_28", "gdpr_art_13"],
+      "court": {
+        "court_id": "dpc_ireland",
+        "name": "Irish Data Protection Commission",
+        "jurisdiction": "IE",
+        "tier": "supervisory_authority"
+      }
+    },
+    {
+      "case_id": "british_airways_2020",
+      "name": "British Airways (ICO 2020)",
+      "authority": "UK ICO",
+      "year": 2020,
+      "penalty_eur": 22000000,
+      "holding": "British Airways was fined £20M (€22M) for insufficient technical and organisational security measures under Art. 32, after a breach exposed 400,000 customer records.",
+      "authority_score": 0.82,
+      "enforces": ["gdpr_art_32"],
+      "court": {
+        "court_id": "ico_uk",
+        "name": "UK Information Commissioner's Office",
+        "jurisdiction": "UK",
+        "tier": "supervisory_authority"
+      }
+    },
+    {
+      "case_id": "schrems_ii_2020",
+      "name": "Schrems II (CJEU C-311/18)",
+      "authority": "Court of Justice of the EU",
+      "year": 2020,
+      "penalty_eur": null,
+      "holding": "The CJEU invalidated the EU-US Privacy Shield, holding that transfers of personal data to the United States require additional safeguards beyond Standard Contractual Clauses.",
+      "authority_score": 1.0,
+      "enforces": ["gdpr_art_44"],
+      "court": {
+        "court_id": "cjeu",
+        "name": "Court of Justice of the European Union",
+        "jurisdiction": "EU",
+        "tier": "supreme_court"
+      }
+    },
+    {
+      "case_id": "twitter_dpc_2020",
+      "name": "Twitter International (DPC 2020)",
+      "authority": "Irish Data Protection Commission",
+      "year": 2020,
+      "penalty_eur": 450000,
+      "holding": "Twitter was fined €450,000 for failing to notify a personal data breach within 72 hours, explicitly citing Austrian Post as precedent for the timeliness requirement.",
+      "authority_score": 0.75,
+      "enforces": ["gdpr_art_33"],
+      "court": {
+        "court_id": "dpc_ireland",
+        "name": "Irish Data Protection Commission",
+        "jurisdiction": "IE",
+        "tier": "supervisory_authority"
+      }
+    },
+    {
+      "case_id": "tim_italy_2020",
+      "name": "TIM S.p.A. (Garante 2020)",
+      "authority": "Italian Garante",
+      "year": 2020,
+      "penalty_eur": 27800000,
+      "holding": "TIM was fined €27.8 million for lacking privacy-by-design measures under Art. 25, leading to unlawful processing of subscriber data for marketing purposes.",
+      "authority_score": 0.78,
+      "enforces": ["gdpr_art_25"],
+      "court": {
+        "court_id": "garante_italy",
+        "name": "Garante per la Protezione dei Dati Personali",
+        "jurisdiction": "IT",
+        "tier": "supervisory_authority"
+      }
+    },
+    {
+      "case_id": "google_cnil_2019",
+      "name": "Google LLC (CNIL 2019)",
+      "authority": "French CNIL",
+      "year": 2019,
+      "penalty_eur": 50000000,
+      "holding": "Google was fined €50 million for failure to provide sufficiently granular consent and erasure controls under Arts. 6 and 17.",
+      "authority_score": 0.85,
+      "enforces": ["gdpr_art_17", "gdpr_art_6"],
+      "court": {
+        "court_id": "cnil_france",
+        "name": "Commission nationale de l'informatique et des libertés",
+        "jurisdiction": "FR",
+        "tier": "supervisory_authority"
+      }
+    }
+  ]
+}

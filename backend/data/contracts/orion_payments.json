@@ -1,0 +1,90 @@
+{
+  "contract_id": "orion_payments",
+  "title": "Orion Payments S.A. / Customer EU DPA — Data Processing Agreement",
+  "parties": ["Orion Payments S.A. (Dublin, IE)", "Customer EU"],
+  "governing_law": "Ireland",
+  "data_categories": ["transaction_data", "customer_identifiers"],
+  "framework_id": "gdpr_2016_679",
+  "clauses": [
+    {
+      "clause_id": "orion_payments__cl_1",
+      "section": "§1 Scope and Lawful Basis",
+      "text": "Orion Payments processes Customer's data subjects' personal data solely on documented instructions, on the lawful bases of contract performance and legitimate interests, with a record of processing activities maintained under Art. 30.",
+      "maps_to_requirements": ["gdpr_art_5", "gdpr_art_6"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "orion_payments__cl_2",
+      "section": "§2 Special Categories",
+      "text": "The Parties acknowledge that no special category personal data within the meaning of Art. 9 will be processed under this Agreement; in the event such data is processed inadvertently, the Parties shall promptly invoke the special-category safeguards in Schedule 3.",
+      "maps_to_requirements": ["gdpr_art_9"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "orion_payments__cl_3",
+      "section": "§3 Transparency",
+      "text": "Orion Payments provides data subjects with information regarding the controller's identity, contact details of the Data Protection Officer, processing purposes, recipients, retention periods, and the rights afforded under Arts. 13, 15–22.",
+      "maps_to_requirements": ["gdpr_art_13"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "orion_payments__cl_4",
+      "section": "§4 Erasure and Restriction",
+      "text": "Upon a verified data subject request under Art. 17 or Art. 18, Orion Payments shall erase or restrict processing of the relevant personal data within thirty (30) calendar days and shall confirm the action in writing.",
+      "maps_to_requirements": ["gdpr_art_17"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "orion_payments__cl_5",
+      "section": "§5 Data Protection by Design",
+      "text": "Orion Payments implements appropriate technical and organisational measures — including pseudonymisation, data minimisation, default-private settings, and access control — in accordance with Art. 25.",
+      "maps_to_requirements": ["gdpr_art_25"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "orion_payments__cl_6",
+      "section": "§6 Sub-processors",
+      "text": "Orion Payments may engage sub-processors only with prior written authorization. A current list of authorized sub-processors is maintained in Schedule 2, and the Controller is notified of any intended addition or replacement at least 30 days in advance, with a right to object.",
+      "maps_to_requirements": ["gdpr_art_28"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "orion_payments__cl_7",
+      "section": "§7 Security",
+      "text": "Orion Payments maintains encryption at rest (AES-256) and in transit (TLS 1.3), regular penetration testing, role-based access control, and an information security management system aligned with ISO/IEC 27001, as required by Art. 32.",
+      "maps_to_requirements": ["gdpr_art_32"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "orion_payments__cl_8",
+      "section": "§8 Breach Notification",
+      "text": "In the event of a personal data breach, Orion Payments shall notify the Controller without undue delay and in any event no later than 72 hours after becoming aware, in compliance with Art. 33.",
+      "maps_to_requirements": ["gdpr_art_33"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "orion_payments__cl_9",
+      "section": "§9 Data Protection Impact Assessment",
+      "text": "Where processing is likely to result in high risk to data subjects, the Parties shall conduct a Data Protection Impact Assessment in accordance with Art. 35 prior to commencement of such processing, and Orion Payments shall provide all reasonable assistance to the Controller.",
+      "maps_to_requirements": ["gdpr_art_35"],
+      "conflicts_with": [],
+      "risk_flags": []
+    },
+    {
+      "clause_id": "orion_payments__cl_10",
+      "section": "§10 International Transfers",
+      "text": "Any transfer of personal data outside the EEA shall be governed by the EU Standard Contractual Clauses (Decision 2021/914) supplemented by Transfer Impact Assessments where required, in compliance with Art. 44.",
+      "maps_to_requirements": ["gdpr_art_44"],
+      "conflicts_with": [],
+      "risk_flags": []
+    }
+  ]
+}

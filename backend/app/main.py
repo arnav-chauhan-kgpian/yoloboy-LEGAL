@@ -34,10 +34,13 @@ def create_app() -> FastAPI:
         lifespan=lifespan,
     )
 
+    origins = settings.cors_origins_list
+    # Allow all origins when a wildcard railway URL is configured or CORS_ORIGINS=*
+    allow_all = "*" in origins or any("*" in o for o in origins)
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.cors_origins_list,
-        allow_credentials=True,
+        allow_origins=["*"] if allow_all else origins,
+        allow_credentials=not allow_all,
         allow_methods=["*"],
         allow_headers=["*"],
     )
