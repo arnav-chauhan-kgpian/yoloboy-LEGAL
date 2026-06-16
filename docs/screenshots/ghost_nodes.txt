@@ -1,0 +1,10 @@
+﻿Place screenshot here: ghost_nodes.png
+
+Capture instructions:
+1. Start backend + frontend
+2. Select "Nexus Analytics / Meridian Healthcare" contract
+3. Click Q2 (gap query), click Analyze
+4. Wait for analysis to complete
+5. Screenshot when 4 ghost nodes are visible (glowing red dashed nodes)
+6. Crop to show graph canvas with ghost nodes prominent
+7. Save as ghost_nodes.png in this directory

@@ -1,0 +1,12 @@
+﻿Place demo GIF here: demo.gif
+
+Capture instructions:
+1. Use LiceCap (Windows) or Kap (Mac) to record screen
+2. Record the full Q2 analysis flow:
+   - Select nexus_meridian contract
+   - Click Analyze
+   - Watch ghost nodes appear in graph
+   - Pan over ghost nodes
+   - Show gap report in right panel
+3. Keep under 30 seconds, optimize for file size
+4. Save as demo.gif in this directory

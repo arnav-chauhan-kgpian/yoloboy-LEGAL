@@ -1,0 +1,55 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@xyflow/react/dist/style.css";
+
+html, body { height: 100%; margin: 0; }
+body {
+  background: #0B0D14;
+  color: #0F172A;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* React Flow canvas */
+.react-flow__renderer { background: #EEF1F8; }
+.react-flow__background { background: #EEF1F8; }
+
+/* Edge styles */
+.react-flow__edge.edge-conflicts .react-flow__edge-path {
+  stroke: #E11D48;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 3;
+}
+.react-flow__edge.edge-maps .react-flow__edge-path {
+  stroke: #10B981;
+  stroke-width: 1.5;
+}
+.react-flow__edge.edge-enforces .react-flow__edge-path {
+  stroke: #6366F1;
+  stroke-width: 1;
+  opacity: 0.6;
+}
+.react-flow__edge.edge-contains .react-flow__edge-path {
+  stroke: #94A3B8;
+  stroke-width: 1;
+}
+
+/* MiniMap */
+.react-flow__minimap {
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+/* Controls */
+.react-flow__controls {
+  border-radius: 8px;
+  border: 1px solid #E2E8F0 !important;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+}
+.react-flow__controls-button {
+  border-bottom: 1px solid #E2E8F0 !important;
+}

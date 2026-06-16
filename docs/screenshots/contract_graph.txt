@@ -1,0 +1,7 @@
+﻿Place screenshot here: contract_graph.png
+
+Capture instructions:
+1. Select "Nexus Analytics / Meridian Healthcare" contract
+2. Before running analysis — shows clean graph (no ghost nodes yet)
+3. Screenshot showing Contract → Clause → Requirement subgraph
+4. Save as contract_graph.png in this directory

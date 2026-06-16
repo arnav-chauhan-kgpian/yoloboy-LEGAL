@@ -1,0 +1,6 @@
+﻿Place screenshot here: risk_report.png
+
+Capture instructions:
+1. After running Q1 analysis on nexus_meridian
+2. Screenshot the right panel showing risk/conflict cards
+3. Save as risk_report.png in this directory

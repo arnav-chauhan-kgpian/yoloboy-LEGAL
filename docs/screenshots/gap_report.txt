@@ -1,0 +1,7 @@
+﻿Place screenshot here: gap_report.png
+
+Capture instructions:
+1. After running Q2 analysis on nexus_meridian
+2. Screenshot the right panel showing 4 gap cards
+3. Each card should show: article, title, rationale, enforcement citation
+4. Save as gap_report.png in this directory

@@ -1,0 +1,12 @@
+﻿# docker-compose.yml is no longer required.
+# LexGraph AI runs as a single Python process — no Docker, no external services.
+#
+# To start the backend:
+#   cd backend
+#   pip install -r requirements.txt
+#   uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+#
+# To start the frontend:
+#   cd frontend
+#   npm install
+#   npm run dev
