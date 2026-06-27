@@ -43,7 +43,7 @@ export function ContractUploader({ onUploaded }: { onUploaded?: () => void }) {
       <input
         ref={inputRef}
         type="file"
-        accept=".pdf,.docx,.txt,.md"
+        accept=".pdf,.docx,.txt,.md,.png,.jpg,.jpeg,.tiff,.bmp,.webp"
         className="hidden"
         disabled={busy}
         onChange={(e) => {
@@ -57,10 +57,10 @@ export function ContractUploader({ onUploaded }: { onUploaded?: () => void }) {
         onClick={() => inputRef.current?.click()}
         className="w-full px-3 py-2.5 rounded-lg text-[12px] font-medium bg-accent/15 border border-accent/40 text-white hover:bg-accent/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {busy ? stage || "Uploading…" : "+ Upload PDF / DOCX / TXT"}
+        {busy ? stage || "Uploading…" : "+ Upload Contract"}
       </button>
       <div className="text-[10px] text-slate-500 px-1 leading-relaxed">
-        Auto-segments clauses · Maps to GDPR · Runs Ghost Node analysis
+        PDF · DOCX · TXT · Images (OCR via Tesseract) · GDPR auto-map
       </div>
       {error && (
         <div className="text-[10px] text-red-400 break-words px-1 mt-1">

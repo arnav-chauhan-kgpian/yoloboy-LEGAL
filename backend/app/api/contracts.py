@@ -82,7 +82,7 @@ async def upload_contract(
     if len(text.strip()) < 100:
         raise HTTPException(
             status_code=400,
-            detail="Document text too short. Was the PDF scanned/image-based? OCR is not enabled.",
+            detail="Document text too short — could not extract enough content (even after OCR).",
         )
 
     resolved_title = title or (file.filename or "Uploaded Contract").rsplit(".", 1)[0]
