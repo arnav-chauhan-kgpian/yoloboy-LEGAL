@@ -10,7 +10,7 @@ router = APIRouter(prefix="/api", tags=["health"])
 async def health():
     neo4j = await get_neo4j()
     chroma = get_chroma()
-    neo_ok = await neo4j.ping()
+    neo_ok = neo4j.ping()
     chr_ok = chroma.ping()
     status = "healthy" if neo_ok and chr_ok else "degraded"
     return {
