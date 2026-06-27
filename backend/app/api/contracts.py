@@ -13,8 +13,16 @@ router = APIRouter(prefix="/api/contracts", tags=["contracts"])
 
 @router.get("", response_model=list[ContractSummary])
 async def list_all_contracts():
-    neo4j = await get_neo4j()
-    return await list_contracts(neo4j)
+    import traceback
+    try:
+        neo4j = await get_neo4j()
+        return await list_contracts(neo4j)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail={
+            "error": str(exc),
+            "type": type(exc).__name__,
+            "trace": traceback.format_exc(),
+        })
 
 
 @router.get("/{contract_id}", response_model=ContractSummary)
