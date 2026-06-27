@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
+import { createPortal } from "react-dom";
 import { Handle, Position, type NodeProps, type Node } from "@xyflow/react";
 
 type CaseInfo = {
@@ -26,19 +27,32 @@ function fmtEUR(eur: number | null | undefined): string {
   return `€${eur}`;
 }
 
-function RequirementTooltip({ data, isGap }: { data: Data["data"]; isGap: boolean }) {
+function RequirementTooltip({
+  data,
+  isGap,
+  anchorRect,
+}: {
+  data: Data["data"];
+  isGap: boolean;
+  anchorRect: DOMRect | null;
+}) {
   const cases = data.cases ?? [];
-  return (
+  if (!anchorRect || typeof document === "undefined") return null;
+  const TOOLTIP_W = 320;
+  const left = Math.max(
+    8,
+    Math.min(window.innerWidth - TOOLTIP_W - 8, anchorRect.left + anchorRect.width / 2 - TOOLTIP_W / 2),
+  );
+  const top = anchorRect.bottom + 10;
+  return createPortal(
     <div
       className="nodrag nopan"
       style={{
-        position: "absolute",
-        top: "calc(100% + 10px)",
-        left: "50%",
-        transform: "translateX(-50%)",
-        zIndex: 9999,
-        minWidth: 280,
-        maxWidth: 340,
+        position: "fixed",
+        top,
+        left,
+        zIndex: 2147483647,
+        width: TOOLTIP_W,
         backgroundColor: "rgb(15, 18, 32)",
         backgroundImage: "linear-gradient(180deg, rgb(20, 24, 40) 0%, rgb(12, 14, 24) 100%)",
         border: `1.5px solid ${isGap ? "#E11D48" : "#6366F1"}`,
@@ -108,7 +122,8 @@ function RequirementTooltip({ data, isGap }: { data: Data["data"]; isGap: boolea
           No enforcement case attached yet.
         </div>
       )}
-    </div>
+    </div>,
+    document.body,
   );
 }
 
@@ -155,7 +170,13 @@ export function ClauseNode({ data }: NodeProps<LexNode>) {
 
 export function RequirementNode({ data }: NodeProps<LexNode>) {
   const [hover, setHover] = useState(false);
+  const [rect, setRect] = useState<DOMRect | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isGap = !!data.is_gap;
+
+  useLayoutEffect(() => {
+    if (hover && ref.current) setRect(ref.current.getBoundingClientRect());
+  }, [hover]);
 
   const inner = isGap ? (
     <div
@@ -227,12 +248,13 @@ export function RequirementNode({ data }: NodeProps<LexNode>) {
 
   return (
     <div
+      ref={ref}
       style={{ position: "relative" }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
       {inner}
-      {hover && <RequirementTooltip data={data.data} isGap={isGap} />}
+      {hover && <RequirementTooltip data={data.data} isGap={isGap} anchorRect={rect} />}
     </div>
   );
 }
