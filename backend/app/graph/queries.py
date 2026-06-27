@@ -132,11 +132,12 @@ async def fetch_base_graph(
         for req_id in store.clause_maps_to.get(cl_id, []):
             req = store.requirements.get(req_id, {"requirement_id": req_id})
             if req_id not in nodes:
+                cases = await g3_precedent_chain(store, req_id)
                 nodes[req_id] = GraphNode(
                     id=req_id,
                     type="Requirement",
                     label=req.get("article", req_id),
-                    data=req,
+                    data={**req, "cases": cases[:3]},
                 )
             edges.append(GraphEdge(
                 id=f"{cl_id}__MAPS_TO__{req_id}",
@@ -148,11 +149,12 @@ async def fetch_base_graph(
         for req_id in store.clause_conflicts.get(cl_id, []):
             req = store.requirements.get(req_id, {"requirement_id": req_id})
             if req_id not in nodes:
+                cases = await g3_precedent_chain(store, req_id)
                 nodes[req_id] = GraphNode(
                     id=req_id,
                     type="Requirement",
                     label=req.get("article", req_id),
-                    data=req,
+                    data={**req, "cases": cases[:3]},
                 )
             edges.append(GraphEdge(
                 id=f"{cl_id}__CONFLICTS_WITH__{req_id}",
@@ -185,6 +187,7 @@ async def fetch_base_graph(
         for gap in gap_result.get("gap_requirements", []):
             rid = gap["requirement_id"]
             gap_ids.append(rid)
+            top_cases = await g3_precedent_chain(store, rid)
             nodes[rid] = GraphNode(
                 id=rid,
                 type="Requirement",
@@ -194,6 +197,7 @@ async def fetch_base_graph(
                     "title": gap.get("title"),
                     "severity": gap.get("severity", "CRITICAL"),
                     "verbatim_text": gap.get("verbatim_text", ""),
+                    "cases": top_cases[:3],
                 },
                 is_gap=True,
             )
