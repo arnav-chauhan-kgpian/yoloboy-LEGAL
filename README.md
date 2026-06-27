@@ -7,6 +7,13 @@
 
 Built for the National Hackathon — Legal Services track.
 
+### Live Demo
+
+- **App** → https://mellow-perception-production-3961.up.railway.app
+- **Backend API** → https://sunny-mindfulness-production-02b3.up.railway.app
+
+Upload your own PDF / DOCX / scanned image (Tesseract OCR runs server-side) and Ghost Node analysis runs against the GDPR knowledge graph in real time.
+
 ---
 
 ## The Problem
