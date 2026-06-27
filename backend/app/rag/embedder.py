@@ -1,39 +1,14 @@
-"""fastembed embedding wrapper — uses ONNX Runtime, no PyTorch, ~80MB RAM."""
-import asyncio
-from functools import lru_cache
-from fastembed import TextEmbedding
-from app.database.chroma_client import ChromaClient
-
-
-@lru_cache(maxsize=1)
-def _model() -> TextEmbedding:
-    return TextEmbedding("sentence-transformers/all-MiniLM-L6-v2")
+"""Embedding stub — vector search disabled to stay within Railway 512MB RAM limit.
+G2 gap detection (the core demo feature) is graph-only and unaffected."""
 
 
 async def embed_texts(texts: list[str]) -> list[list[float]]:
-    if not texts:
-        return []
-    loop = asyncio.get_event_loop()
-    vectors = await loop.run_in_executor(
-        None, lambda: [v.tolist() for v in _model().embed(texts)]
-    )
-    return vectors
+    return []
 
 
 async def embed_query(query: str) -> list[float]:
-    vectors = await embed_texts([query])
-    return vectors[0] if vectors else []
+    return []
 
 
-async def embed_and_upsert_clauses(chroma: ChromaClient, clauses: list[dict]) -> int:
-    if not clauses:
-        return 0
-    texts = [c["text"] for c in clauses]
-    embeddings = await embed_texts(texts)
-    ids = [c["clause_id"] for c in clauses]
-    metas = [
-        {"contract_id": c["contract_id"], "section": c["section"], "clause_id": c["clause_id"]}
-        for c in clauses
-    ]
-    chroma.upsert(ids=ids, embeddings=embeddings, documents=texts, metadatas=metas)
+async def embed_and_upsert_clauses(chroma, clauses: list[dict]) -> int:
     return len(clauses)
