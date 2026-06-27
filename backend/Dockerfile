@@ -11,9 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Pre-download the embedding model so it's baked into the image
-# and never downloads at runtime (avoids health check timeout on cold start)
-RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
+# Pre-download the fastembed model (ONNX, ~80MB) at build time
+RUN python -c "from fastembed import TextEmbedding; list(TextEmbedding('sentence-transformers/all-MiniLM-L6-v2').embed(['warmup']))"
 
 EXPOSE 8000
 
