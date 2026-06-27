@@ -7,6 +7,7 @@ import type { ContractSummary } from "@/types";
 export function ContractSelector() {
   const [contracts, setContracts] = useState<ContractSummary[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const contractId = useStore((s) => s.contractId);
   const setContract = useStore((s) => s.setContract);
   const resetAnalysis = useStore((s) => s.resetAnalysis);
@@ -17,14 +18,19 @@ export function ContractSelector() {
         setContracts(cs);
         if (cs.length > 0 && !contractId) setContract(cs[0].contract_id);
       })
-      .catch(() => setContracts([]))
+      .catch((e) => { setContracts([]); setError(String(e)); })
       .finally(() => setLoading(false));
   }, [contractId, setContract]);
 
   if (loading)
     return <div className="text-[11px] text-slate-500 animate-pulse">Loading contracts…</div>;
   if (contracts.length === 0)
-    return <div className="text-[11px] text-slate-500">No contracts. Run seed first.</div>;
+    return (
+      <div className="text-[11px] text-slate-500 space-y-1">
+        <div>No contracts. Run seed first.</div>
+        {error && <div className="text-red-400 break-all">{error}</div>}
+      </div>
+    );
 
   return (
     <div className="space-y-2">
