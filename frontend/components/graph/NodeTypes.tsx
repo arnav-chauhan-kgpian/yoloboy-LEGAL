@@ -33,19 +33,22 @@ function RequirementTooltip({ data, isGap }: { data: Data["data"]; isGap: boolea
       className="nodrag nopan"
       style={{
         position: "absolute",
-        top: "calc(100% + 8px)",
+        top: "calc(100% + 10px)",
         left: "50%",
         transform: "translateX(-50%)",
-        zIndex: 50,
+        zIndex: 9999,
         minWidth: 280,
         maxWidth: 340,
-        background: "#0F1220",
-        border: `1px solid ${isGap ? "#E11D48" : "#6366F1"}`,
+        backgroundColor: "rgb(15, 18, 32)",
+        backgroundImage: "linear-gradient(180deg, rgb(20, 24, 40) 0%, rgb(12, 14, 24) 100%)",
+        border: `1.5px solid ${isGap ? "#E11D48" : "#6366F1"}`,
         borderRadius: 10,
-        boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
-        padding: "10px 12px",
-        color: "#E5E7EB",
+        boxShadow:
+          "0 20px 50px rgba(0,0,0,0.85), 0 8px 16px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,0,0,0.6)",
+        padding: "12px 14px",
+        color: "#F3F4F6",
         fontFamily: "Inter, system-ui, sans-serif",
+        opacity: 1,
         pointerEvents: "none",
       }}
     >
