@@ -4,7 +4,7 @@ const BASE = "/api";
 
 export async function listContracts(): Promise<ContractSummary[]> {
   const res = await fetch(`${BASE}/contracts`);
-  if (!res.ok) throw new Error("Failed to list contracts");
+  if (!res.ok) throw new Error(`Failed to list contracts: ${res.status} ${res.statusText}`);
   return res.json();
 }
 
